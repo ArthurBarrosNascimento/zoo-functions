@@ -22,15 +22,15 @@ describe('Testes da função HandlerElephants', () => {
     expect(result).toBe(expected);
   });
 
-  it('Retorna um array com a relação de dias em que é possível visitar os elefantes', () => {
-    const availability = ['Friday', 'Saturday', 'Sunday', 'Tuesday'];
-    expect(handlerElephants('availability')).toEqual(availability);
-  });
-
-  it('Eetorna a localização dos elefantes dentro do Zoológico', () => {
+  it('Retorna a localização dos elefantes dentro do Zoológico', () => {
     const result = handlerElephants('location');
     const expected = 'NW';
     expect(result).toEqual(expected);
+  });
+
+  it('Retorna um array com a relação de dias em que é possível visitar os elefantes', () => {
+    const availability = ['Friday', 'Saturday', 'Sunday', 'Tuesday'];
+    expect(handlerElephants('availability')).toEqual(availability);
   });
 
   it('Se não receber nenhum parâmetro deve retornar undefined', () => {
@@ -39,5 +39,9 @@ describe('Testes da função HandlerElephants', () => {
 
   it('Caso o parâmetro não for uma string, deve retornar mensagem de erro', () => {
     expect(handlerElephants(123)).toEqual('Parâmetro inválido, é necessário uma string');
+  });
+
+  it('Deve retornar null caso seja um paremetro diferente', () => {
+    expect(handlerElephants('direfente')).toEqual(null);
   });
 });
